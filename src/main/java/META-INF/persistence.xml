@@ -1,0 +1,47 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+<!-- transaction-type="JTA" PRojemzde birden fazla database varsa ve bunları yönetmek istiyorsak JTA  kullanabiliriz. -->
+	<persistence-unit name="persistenceUnitNameHamit" >
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+<!-- 		<class>com.hamit.hibernatebean.Register</class> -->
+		
+<!-- 		<shared-cache-mode></shared-cache-mode> -->
+		
+		<properties>
+		<!-- database connection -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/blog?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Turkey" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
+				
+				<!-- compilerda neler olmasını istiyoruz. -->
+				<!-- create-drop none create-only update -->
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="update" />
+				
+				<!-- Turkce sorunu cozumu -->
+				<property name="hibernate.connection.useUnicode" value="true"/>
+				<property name="hibernate.connection.characterEncoding" value="UTF-8"/>
+				
+				
+				<property name="showsql" value="true"/>
+				<property name="connection.autocommit" value="true"/>
+
+		</properties>
+		
+<!-- 		<jta-data-source>java:jboss/datasorces/proj</jta-data-source> -->
+		
+
+	</persistence-unit>
+
+</persistence>
