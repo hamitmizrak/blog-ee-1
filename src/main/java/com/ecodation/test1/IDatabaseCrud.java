@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.hibernate.Session;
 
+import com.ecodation.hibernateutil.HibernateUtils;
+
 public interface IDatabaseCrud<T> {
 
 	public void create(T t);

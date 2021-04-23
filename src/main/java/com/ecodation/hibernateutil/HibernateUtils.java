@@ -3,7 +3,7 @@ package com.ecodation.hibernateutil;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.ecodation.hibernate.LoginHib;
+import com.ecodation.hibernate.LoginHiber;
 
 //singleton design pattern
 public class HibernateUtils {
@@ -14,7 +14,7 @@ public class HibernateUtils {
 		try {
 			Configuration configuration = new Configuration();
 		
-			configuration.addAnnotatedClass(LoginHib.class);
+			configuration.addAnnotatedClass(LoginHiber.class);
 
 			SessionFactory sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
 			return sessionFactory;
